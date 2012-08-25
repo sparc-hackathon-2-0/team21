@@ -8,5 +8,5 @@
     <string name="leftImageDescription">Left Image</string>
     <string name="rightImageDescription">Right Image</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="serverUrl">http://10.0.2.2:8888/jsonrpc</string>
+    <string name="serverUrl">http://media-relater.appsot.com/jsonrpc</string>
 </resources>
