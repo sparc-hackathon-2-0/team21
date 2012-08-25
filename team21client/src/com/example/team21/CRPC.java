@@ -16,8 +16,8 @@ public class CRPC {
 
 			rpc = invoker.get(transport, "rpc", Rpc.class);
 		} catch (Exception e) {
-			throw new Exception("Error reading from server.");
-			e.printStackTrace();
+		  e.printStackTrace();
+		  throw new Exception("Error reading from server.");
 		}
 		return rpc;
 	}

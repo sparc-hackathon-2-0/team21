@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-  private final String rpcUrl = getResources().getText(R.string.serverUrl).toString();
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -32,9 +31,13 @@ public class MainActivity extends Activity {
 	String leftid = "";
 	String rightid = "";
 
+	private String getServerUrl() {
+	  return getResources().getText(R.string.serverUrl).toString();
+	}
+	
 	public void next() {
 	  try {
-	    String[] sta = CRPC.getRPC(rpcUrl).getRandomArticle();
+	    String[] sta = CRPC.getRPC(getServerUrl()).getRandomArticle();
 	    ImageButton choose = ((ImageButton) findViewById(R.id.lhsImage));
 	    choose.setImageURI(Uri.parse(sta[3]));
 	    leftUrl = sta[2];
@@ -53,9 +56,10 @@ public class MainActivity extends Activity {
 	
 	public void related(View view) {
 		try {
-      CRPC.getRPC(rpcUrl).relateorunrelate(Long.parseLong(leftid), Long.parseLong(rightid), true);
+      CRPC.getRPC(getServerUrl()).relateorunrelate(Long.parseLong(leftid), Long.parseLong(rightid), true);
       next();
     } catch (NumberFormatException e) {
+      shortAnnounce("The id's don't make sense. Go away.");
       e.printStackTrace();
     } catch (Exception e) {
       shortAnnounce(e.getMessage());
@@ -69,10 +73,10 @@ public class MainActivity extends Activity {
 
 	public void notrelated(View view) {
 		try {
-      CRPC.getRPC(rpcUrl).relateorunrelate(Long.parseLong(leftid), Long.parseLong(rightid), true);
+      CRPC.getRPC(getServerUrl()).relateorunrelate(Long.parseLong(leftid), Long.parseLong(rightid), true);
       next();
 		} catch (NumberFormatException e) {
-      // TODO Auto-generated catch block
+      shortAnnounce("The id's don't make sense. Go away.");
       e.printStackTrace();
     } catch (Exception e) {
       shortAnnounce(e.getMessage());
