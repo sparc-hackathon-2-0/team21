@@ -22,9 +22,7 @@
         	android:scaleType="fitCenter"
         	android:src="@drawable/tank"
         	android:layout_span="1" 
-        	android:onClick="lefturl"
-        	
-        	/>
+        	android:onClick="openLeftUrl" />
 			
         <ImageView
         	android:id="@+id/rhsImage"
@@ -35,9 +33,7 @@
         	android:scaleType="fitCenter"
         	android:src="@drawable/barbie"
         	android:layout_span="1" 
-        	android:onClick="righturl"
-        	
-        	/>
+        	android:onClick="openRightUrl" />
 
     </TableRow>
 
