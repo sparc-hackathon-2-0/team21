@@ -3,6 +3,10 @@
     <string name="app_name">team21</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="buttonRelatedLabel">Related</string>
+    <string name="buttonNotRelatedLabel">Not Related</string>
+    <string name="leftImageDescription">Left Image</string>
+    <string name="rightImageDescription">Right Image</string>
     <string name="title_activity_main">MainActivity</string>
 
 </resources>

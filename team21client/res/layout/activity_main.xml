@@ -1,50 +1,62 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/TableLayout1"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="21dp"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/hello_world"
-        tools:context=".MainActivity" />
+    <TableRow
+    	android:id="@+id/imageRow"
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:layout_weight="1"
+    	android:gravity="fill_horizontal" >
 
-    <ImageButton
-        android:id="@+id/ImageButton01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/button1" />
+        <ImageView
+        	android:id="@+id/lhsImage"
+        	android:layout_width="fill_parent"
+        	android:layout_height="fill_parent"
+        	android:layout_weight=".5"
+        	android:adjustViewBounds="true"
+        	android:contentDescription="@string/leftImageDescription"
+        	android:scaleType="fitCenter"
+        	android:src="@drawable/tank"
+        	android:layout_span="1" />
 
+        <ImageView
+        	android:id="@+id/rhsImage"
+        	android:layout_width="fill_parent"
+        	android:layout_height="fill_parent"
+        	android:adjustViewBounds="true"
+        	android:contentDescription="@string/rightImageDescription"
+        	android:scaleType="fitCenter"
+        	android:src="@drawable/barbie"
+        	android:layout_span="1" />
 
-    <ImageButton
-        android:id="@+id/ImageButton02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="54dp"
-        android:src="@drawable/button1" />
+    </TableRow>
 
-</RelativeLayout>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    <TableRow
+    	android:id="@+id/buttonRow"
+    	android:layout_width="fill_parent"
+    	android:layout_height="match_parent"
+    	android:layout_weight="0" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/hello_world"
-        tools:context=".MainActivity" />
+        <Button
+        	android:id="@+id/buttonRelated"
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_weight=".5"
+        	android:text="@string/buttonRelatedLabel"
+        	android:layout_span="1" />
 
-</RelativeLayout>
+        <Button
+        	android:id="@+id/buttonNotRelated"
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_weight=".5"
+        	android:text="@string/buttonNotRelatedLabel"
+        	android:layout_span="1" />
+
+    </TableRow>
+
+</TableLayout>
