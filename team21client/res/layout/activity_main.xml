@@ -47,15 +47,19 @@
         	android:layout_height="wrap_content"
         	android:layout_weight=".5"
         	android:text="@string/buttonRelatedLabel"
-        	android:layout_span="1" />
-
+        	android:layout_span="1"         	
+			android:onClick="related"
+        	/>                
         <Button
         	android:id="@+id/buttonNotRelated"
         	android:layout_width="fill_parent"
         	android:layout_height="wrap_content"
         	android:layout_weight=".5"
         	android:text="@string/buttonNotRelatedLabel"
-        	android:layout_span="1" />
+        	android:layout_span="1" 
+       		android:onClick="notrelated"                
+        
+        	/>
 
     </TableRow>
 
