@@ -1,16 +1,13 @@
 package com.example.team21;
 
-import com.server.trading.R;
 
+import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
-import android.support.v4.app.NavUtils;
+import android.widget.ImageView;
 
 public class MainActivity extends Activity {
 
@@ -18,7 +15,7 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		next();
 	}
 
 	@Override
@@ -35,7 +32,7 @@ public class MainActivity extends Activity {
 	String rightid = "";
 
 	public void next() {
-		ImageButton choose = ((ImageButton) findViewById(R.id.lhsImage));
+		ImageView choose = ((ImageView) findViewById(R.id.lhsImage));
 		String[] sta = CRPC.getRPC().getRandomArticle();
 		choose.setImageURI(Uri.parse(sta[3]));
 		lefturl = sta[2];
@@ -45,9 +42,13 @@ public class MainActivity extends Activity {
 	}
 
 	public void related(View view) {
-		CRPC.getRPC().relateorunrelate(idrelater, idrelatee, true);
+		CRPC.getRPC().relateorunrelate(Long.parseLong(leftid), Long.parseLong(rightid), true);
 	}
 
+	public void notrelated(View view) {
+		CRPC.getRPC().relateorunrelate(Long.parseLong(leftid), Long.parseLong(rightid), true);
+		
+	}
 	public void lefturl(View view) {
 		//take lefturl and open the browser
 	}
@@ -56,7 +57,5 @@ public class MainActivity extends Activity {
 
 	}
 
-	public void notrelated(View view) {
-
-	}
+	
 }
