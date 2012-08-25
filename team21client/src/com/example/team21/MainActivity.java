@@ -58,8 +58,8 @@ public class MainActivity extends Activity {
 	    Rpc rpc = CRPC.getRPC(getServerUrl());
 	    String[] left = rpc.getRandomArticle();
 	    String[] right = rpc.getRandomArticle();
-	    updateLeftArticle(left[2], left[0], left[3]);
-	    updateRightArticle(right[2], right[0], right[3]);
+	    updateLeftArticle(left[3], left[0], left[2]);
+	    updateRightArticle(right[3], right[0], right[2]);
 	    //initView();
 	  } catch (Exception e) {
 	    shortAnnounce(e.getMessage());
@@ -67,14 +67,18 @@ public class MainActivity extends Activity {
 	  }
 	}
 
+	private String sanitizeUri(String uri) {
+	  return uri.startsWith("http") ? uri : ("http://" + uri);
+	}
+	
 	private void updateLeftArticle(
 	    String articleUri,
 	    String articleId, 
 	    String imageUri) {
-	  this.leftUrl = articleUri;
+	  this.leftUrl = sanitizeUri(articleUri);
 	  this.leftId = articleId;
 	  ImageView button = ((ImageView) findViewById(R.id.lhsImage));
-	  Bitmap image = getImageBitmap(imageUri);
+	  Bitmap image = getImageBitmap(sanitizeUri(imageUri));
 	  button.setImageBitmap(image);
 	}
 	
@@ -82,10 +86,10 @@ public class MainActivity extends Activity {
 	    String articleUri,
 	    String articleId, 
 	    String imageUri) {
-	  this.rightUrl = articleUri;
+	  this.rightUrl = sanitizeUri(articleUri);
 	  this.rightId = articleId;
 	  ImageView button = ((ImageView) findViewById(R.id.rhsImage));
-	  Bitmap image = getImageBitmap(imageUri);
+	  Bitmap image = getImageBitmap(sanitizeUri(imageUri));
 	  button.setImageBitmap(image);
 	}	    
 	

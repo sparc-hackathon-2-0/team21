@@ -3,6 +3,7 @@
 	android:id="@+id/TableLayout1"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:background="@color/mainViewBackground"
 	android:orientation="vertical" >
 
     <TableRow
@@ -47,16 +48,15 @@
         	android:layout_span="1"         	
 			android:onClick="related"
         	/>                
+
         <Button
         	android:id="@+id/buttonNotRelated"
         	android:layout_width="fill_parent"
         	android:layout_height="wrap_content"
+        	android:layout_span="1"
         	android:layout_weight=".5"
-        	android:text="@string/buttonNotRelatedLabel"
-        	android:layout_span="1" 
-       		android:onClick="notrelated"                
-        
-        	/>
+        	android:onClick="notrelated"
+        	android:text="@string/buttonNotRelatedLabel" />
 
     </TableRow>
 
