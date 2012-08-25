@@ -7,11 +7,9 @@ import org.json.rpc.client.JsonRpcInvoker;
 
 
 public class CRPC {
-	public static Rpc getRPC()  {
+	public static Rpc getRPC(String url)  {
 		Rpc rpc = null;
 		try {
-			String url = "http://10.0.2.2:8888/jsonrpc";
-
 			HttpJsonRpcClientTransport transport = null;
 			transport = new HttpJsonRpcClientTransport(new URL(url));
 			JsonRpcInvoker invoker = new JsonRpcInvoker();

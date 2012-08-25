@@ -1,19 +1,16 @@
 package com.example.team21;
 
-import com.server.trading.R;
-
+import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
-import android.support.v4.app.NavUtils;
 
 public class MainActivity extends Activity {
 
+  private final String rpcUrl = getResources().getText(R.string.serverUrl).toString();
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,8 +24,8 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
-	String lefturl = "";
-	String righturl = "";
+	String leftUrl = "http://www.google.com/";
+	String rightUrl = "";
 
 	
 	String leftid = "";
@@ -36,27 +33,34 @@ public class MainActivity extends Activity {
 
 	public void next() {
 		ImageButton choose = ((ImageButton) findViewById(R.id.lhsImage));
-		String[] sta = CRPC.getRPC().getRandomArticle();
+		String[] sta = CRPC.getRPC(rpcUrl).getRandomArticle();
 		choose.setImageURI(Uri.parse(sta[3]));
-		lefturl = sta[2];
+		leftUrl = sta[2];
 		leftid = sta[0];
 		//maybe make sta[1] a text display below
 
 	}
 
+	private void openUrl(String url) {
+	  Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+	  startActivity(webIntent);
+	}
+	
 	public void related(View view) {
-		CRPC.getRPC().relateorunrelate(idrelater, idrelatee, true);
+		//CRPC.getRPC().relateorunrelate(idrelater, idrelatee, true);
+	  next();
 	}
 
-	public void lefturl(View view) {
-		//take lefturl and open the browser
+	public void openLeftUrl(View view) {
+	  openUrl(leftUrl);
 	}
 
-	public void righturl(View view) {
-
+	public void openRightUrl(View view) {
+	  openUrl(rightUrl);
 	}
 
 	public void notrelated(View view) {
-
+	  //CRPC.getRPC().relateorunrelate(idrelater, idrelatee, false);
+	  next();
 	}
 }
