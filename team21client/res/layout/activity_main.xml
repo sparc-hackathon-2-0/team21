@@ -14,26 +14,21 @@
 
         <ImageView
         	android:id="@+id/lhsImage"
-        	android:layout_width="fill_parent"
+          android:layout_weight="1"
+          android:layout_width="0dip"
         	android:layout_height="fill_parent"
-        	android:layout_weight=".5"
-        	android:adjustViewBounds="true"
         	android:contentDescription="@string/leftImageDescription"
-        	android:scaleType="fitCenter"
-        	android:src="@drawable/tank"
-        	android:layout_span="1" 
-        	android:onClick="openLeftUrl" />
+        	android:onClick="openLeftUrl"
+        	android:src="@drawable/tank" />
 			
         <ImageView
         	android:id="@+id/rhsImage"
-        	android:layout_width="fill_parent"
+          android:layout_weight="1"
+          android:layout_width="0dip"
         	android:layout_height="fill_parent"
-        	android:adjustViewBounds="true"
         	android:contentDescription="@string/rightImageDescription"
-        	android:scaleType="fitCenter"
-        	android:src="@drawable/barbie"
-        	android:layout_span="1" 
-        	android:onClick="openRightUrl" />
+        	android:onClick="openRightUrl"
+        	android:src="@drawable/barbie" />
 
     </TableRow>
 
