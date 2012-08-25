@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		next();
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
 	}
 	
 	public void related(View view) {
-		//CRPC.getRPC().relateorunrelate(idrelater, idrelatee, true);
+		CRPC.getRPC(rpcUrl).relateorunrelate(Long.parseLong(leftid), Long.parseLong(rightid), true);
 	  next();
 	}
 
@@ -55,12 +55,12 @@ public class MainActivity extends Activity {
 	  openUrl(leftUrl);
 	}
 
+	public void notrelated(View view) {
+		CRPC.getRPC(rpcUrl).relateorunrelate(Long.parseLong(leftid), Long.parseLong(rightid), true);
+		
+	}
 	public void openRightUrl(View view) {
 	  openUrl(rightUrl);
 	}
 
-	public void notrelated(View view) {
-	  //CRPC.getRPC().relateorunrelate(idrelater, idrelatee, false);
-	  next();
-	}
 }
